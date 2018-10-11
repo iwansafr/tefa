@@ -28,7 +28,7 @@ foreach ($content as $key => $value)
 				</div>
 				<div class="col-lg-5 <?php echo $class_push2 ?> col-sm-6">
 					<?php
-					if(empty($value['image']))
+					if(!empty($value['image']))
 					{
 						?>
 						<img class="img-responsive" src="<?php echo image_module('content',$value['id'].'/'.$value['image']) ?>" alt="" style="object-fit: cover; height: 350px; width: 457px;">

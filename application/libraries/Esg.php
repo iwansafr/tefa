@@ -335,6 +335,12 @@ class Esg extends CI_Model
     $content = $this->db->get_where('content', $where, $limit)->result_array();
     return $content;
   }
+  public function get_product($where = '', $limit = 7)
+  {
+    $this->db->order_by('id', 'desc');
+    $content = $this->db->get_where('product', $where, $limit)->result_array();
+    return $content;
+  }
 
   public function get_cat($id = 0)
   {
