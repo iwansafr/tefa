@@ -77,6 +77,9 @@ class Content_model extends CI_Model
         }
       }else{
         $meta['title'] = 'All of '.$title;
+        if(!empty($this->input->get('keyword'))){
+          $meta['title'] = 'result of '.$this->input->get('keyword');
+        }
         $meta['image'] = image_module('config', 'site/'.@$meta['image']);
       }
     }
