@@ -56,7 +56,7 @@ foreach ($content as $key => $value)
 // $content = $this->db->get_where($data_config['table'], $data_config['where'], 1)->row_array();
 
 $data_config = get_block_config('content_bottom', $config_template);
-$content     = $this->esg->get_content($data_config['where'], $data_config['limit']);
+$content     = $this->esg->get_content($data_config['where'], @intval($data_config['limit']));
 $content     = @$content['0'];
 if(!empty($content))
 {
