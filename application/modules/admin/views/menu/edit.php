@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
-pr($_POST);
+
 $get_id      = $this->input->get('id');
 $parent_id   = $this->input->get('parent_id');
 $position_id = $this->input->get('position_id');
@@ -64,9 +64,13 @@ $form->addInput('title','text');
 
 $form->addInput('link','text');
 
-$form->addInput('is_local','checkbox');
+// $form->addInput('is_local','checkbox');
+// $form->setLabel('is_local', 'Local Link');
+// $form->setCheckbox('is_local', array('1'=>'Local Link'));
+
+$form->addInput('is_local','radio');
 $form->setLabel('is_local', 'Local Link');
-$form->setCheckbox('is_local', array('1'=>'Local Link'));
+$form->setRadio('is_local', array('external link','Local Link'));
 
 $form->addInput('publish', 'checkbox');
 
@@ -81,18 +85,18 @@ $ext = array();
 ob_start();
 ?>
 <script type="text/javascript">
-	$('select[name="position_id"]').on('change', function(){
-		var a = $(this).val();
-		var b = $(this);
-		$.ajax({
+  $('select[name="position_id"]').on('change', function(){
+    var a = $(this).val();
+    var b = $(this);
+    $.ajax({
       type:"POST",
       url:"<?php echo base_url('admin/menu_id') ?>",
       data:{id:a},
       success:function(result){
-      	$('select[name="par_id"]').html(result);
+        $('select[name="par_id"]').html(result);
       }
     });
-	});
+  });
 </script>
 <?php
 $ext = ob_get_contents();
