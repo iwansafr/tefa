@@ -13,6 +13,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 
 #codeigniter 3
 # application/config/config.php
+error.log
 application/config/database.php
 sftp-config.json
 application/logs/*
