@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
-
+pr($_POST);
 $get_id      = $this->input->get('id');
 $parent_id   = $this->input->get('parent_id');
 $position_id = $this->input->get('position_id');
