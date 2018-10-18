@@ -8,8 +8,11 @@ if(!empty($parent_id))
 {
   $data_parent   = $this->data_model->get_one_data('menu',' WHERE id = '.$parent_id);
   $position_name = $this->data_model->get_one('menu_position','title','WHERE id = '.$data_parent['position_id']);
+}else if(!empty($get_id)){
+  $parent_id     = $this->data_model->get_one('menu','par_id','WHERE id = '.$get_id);
+  $data_parent   = $this->data_model->get_one_data('menu',' WHERE id = '.$parent_id);
+  $position_name = $this->data_model->get_one('menu_position','title','WHERE id = '.$data_parent['position_id']);
 }
-
 if(!empty($position_id))
 {
   $position_menu = $this->data_model->get_one_data('menu_position',' WHERE id = '.$position_id);
@@ -41,7 +44,7 @@ $form->addInput('par_id','dropdown');
 $form->setLabel('par_id', 'Parent');
 if(!empty($get_id))
 {
-  $form->tableOptions('par_id', 'menu','id','title',array('id'=>0));
+  $form->tableOptions('par_id', 'menu','id','title',array('id'=>@intval($data_parent['id'])));
 }else{
   $form->setOptions('par_id', array('none'));
   if(!empty($data_parent))
