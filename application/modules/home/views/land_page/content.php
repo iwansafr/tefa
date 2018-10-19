@@ -56,7 +56,7 @@ foreach ($content as $key => $value)
 // $content = $this->db->get_where($data_config['table'], $data_config['where'], 1)->row_array();
 
 $data_config = get_block_config('content_bottom', $config_template);
-$content     = $this->esg->get_content($data_config['where'], $data_config['limit']);
+$content     = $this->esg->get_content($data_config['where'], @intval($data_config['limit']));
 $content     = @$content['0'];
 if(!empty($content))
 {
@@ -71,7 +71,23 @@ if(!empty($content))
 					<p class="lead"><?php echo $content['content'] ?></p>
 				</div>
 				<div class="col-lg-5 col-lg-offset-2 col-sm-6">
-					<img class="img-responsive" src="<?php echo image_module('content', $content['id'].'/'.$content['image']) ?>" alt="" style="object-fit: cover;width: 457px; height: 352px;">
+					<?php
+					if(!empty($content['image']))
+					{
+						?>
+						<img class="img-responsive" src="<?php echo image_module('content',$content['id'].'/'.$content['image']) ?>" alt="" style="object-fit: cover; height: 350px; width: 457px;">
+						<?php
+					}else if(!empty($content['image_link']))
+					{
+						?>
+						<img class="img-responsive" src="<?php echo $content['image_link'] ?>" alt="" style="object-fit: cover; height: 350px; width: 457px;">
+						<?php
+					}else{
+						?>
+						<img class="img-responsive" src="<?php echo image_module('content',$content['id'].'/'.$content['image']) ?>" alt="" style="object-fit: cover; height: 350px; width: 457px;">
+						<?php
+					}
+				 ?>
 				</div>
 			</div>
 		</div>

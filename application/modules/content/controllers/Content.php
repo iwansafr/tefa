@@ -71,6 +71,8 @@ class Content extends CI_Controller
   }
   public function search()
   {
+    $id = $this->input->get('keyword');
+    $this->content_model->set_meta($id,'content', 'content');
     $this->load->view('home/index');
   }
 }
