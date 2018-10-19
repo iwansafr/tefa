@@ -61,7 +61,6 @@ $content     = @$content['0'];
 if(!empty($content))
 {
 	?>
-
 	<div class="content-section-a">
 		<div class="container">
 			<div class="row">
