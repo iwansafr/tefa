@@ -7,7 +7,8 @@
     color: #f8f8f8;
     background: url(<?php echo image_module('config', 'header/'.$header_value['image']) ?>) no-repeat center center;
     /*background-size: cover;*/
-    object-fit: contain;
+    object-fit: cover;
+    max-height: 500px;
 	}
 </style>
 <div class="container">
