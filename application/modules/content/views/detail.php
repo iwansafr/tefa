@@ -71,12 +71,16 @@ if(!empty($data))
 			if(!empty($data['image']))
 			{
 				?>
-				<img src="<?php echo image_module('content', $data['id'].'/'.$data['image']); ?>" style="object-fit: cover;width: 100%;">
+				<center>
+					<img src="<?php echo image_module('content', $data['id'].'/'.$data['image']); ?>" style="object-fit: cover;width: 75%;">
+				</center>
 				<?php
 			}if(!empty($data['image_link']))
 			{
 				?>
-				<img src="<?php echo $data['image_link']; ?>" style="object-fit: cover;width: 100%;">
+				<center>
+					<img src="<?php echo $data['image_link']; ?>" style="object-fit: cover;width: 75%;">
+				</center>
 				<?php
 			}
 			if(!empty($data['images']))
