@@ -72,14 +72,14 @@ if(!empty($data))
 			{
 				?>
 				<center>
-					<img src="<?php echo image_module('content', $data['id'].'/'.$data['image']); ?>" style="object-fit: cover;width: 75%;">
+					<img src="<?php echo image_module('content', $data['id'].'/'.$data['image']); ?>" style="object-fit: cover;height: 75%;">
 				</center>
 				<?php
 			}if(!empty($data['image_link']))
 			{
 				?>
 				<center>
-					<img src="<?php echo $data['image_link']; ?>" style="object-fit: cover;width: 75%;">
+					<img src="<?php echo $data['image_link']; ?>" style="object-fit: cover;height: 75%;">
 				</center>
 				<?php
 			}
